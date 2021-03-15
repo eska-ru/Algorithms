@@ -1,7 +1,7 @@
 package ru.writeway.lesson2;
 
 public class MyArrayList<T extends Comparable<T>> {
-    private final T[] list;
+    private T[] list;
     private int size;
     private int capacity;
     private static final int DEFAULT_CAPACITY = 10;
@@ -36,6 +36,13 @@ public class MyArrayList<T extends Comparable<T>> {
             longCapacity = Integer.MAX_VALUE;
         }
         capacity = (int) longCapacity;
+
+        T[] newArr = (T[]) new Comparable[capacity];
+        for (int i = 0; i < size; ++i) {
+            newArr[i] = list[i];
+        }
+
+        list = newArr;
     }
 
     private void checkIndexIsValid(int index) {
