@@ -1,11 +1,9 @@
 package ru.writeway.lesson3;
 
-import org.jetbrains.annotations.NotNull;
-
 public class StringInverter {
     private StringInverter(){}
 
-    public static String invert(@NotNull String str) {
+    public static String invert(String str) {
         MyStack<Character> stack = new MyStack<>(str.length());
         for (Character ch : str.toCharArray()) {
             stack.push(ch);
